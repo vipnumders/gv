@@ -323,5 +323,117 @@
 .pagination-button:disabled { ... }
 .pagination-info { ... }
  
+/* Enhanced Search Bar Styles */
+.enhanced-search-container {
+    max-width: 600px;
+    margin: 0 auto 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.enhanced-search-title {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+.enhanced-search-content {
+    padding: 15px;
+}
+
+.search-type-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.search-type-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.search-type-options label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.search-type-options input[type="radio"] {
+    margin-right: 5px;
+}
+
+.enhanced-search-input-container {
+    display: flex;
+    width: 100%;
+}
+
+.enhanced-search-input {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 30px 0 0 30px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.enhanced-search-input:focus {
+    border-color: #ff6b6b;
+}
+
+.enhanced-search-button {
+    padding: 12px 20px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 0 30px 30px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.enhanced-search-button:hover {
+    background-color: #ff5252;
+}
+
+/* Responsive adjustments for enhanced search */
+@media (max-width: 768px) {
+    .search-type-options {
+        gap: 10px;
+    }
+    
+    .enhanced-search-input {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .enhanced-search-button {
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-type-options {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .enhanced-search-input {
+        padding: 8px;
+        font-size: 14px;
+    }
+    
+    .enhanced-search-button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
 
     </style>
