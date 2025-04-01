@@ -83,6 +83,27 @@
 </head>
 
 <body>
+    <!-- Enhanced Number Search Bar -->
+<div class="enhanced-search-container">
+    <div class="enhanced-search-title">Advanced Number Search</div>
+    <div class="enhanced-search-content">
+        <div class="search-type-container">
+            <div class="search-type-options">
+                <label><input type="radio" name="searchType" value="anywhere" checked> Anywhere</label>
+                <label><input type="radio" name="searchType" value="startsWith"> Starts With</label>
+                <label><input type="radio" name="searchType" value="endsWith"> Ends With</label>
+                <label><input type="radio" name="searchType" value="exactMatch"> Exact Match</label>
+            </div>
+            <div class="enhanced-search-input-container">
+                <input type="text" id="enhanced-search-input" class="enhanced-search-input" placeholder="Enter digits to search...">
+                <button id="enhanced-search-button" class="enhanced-search-button">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
     <div class="container">
         <div class="vi-logo">GVN</div>
         <h1>Global Vip Numbers</h1>
@@ -211,6 +232,62 @@
     </div>
     
     <script>
+        // Enhanced search functionality
+document.getElementById('enhanced-search-button').addEventListener('click', function() {
+    performEnhancedSearch();
+});
+
+// Also trigger search on Enter key
+document.getElementById('enhanced-search-input').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        performEnhancedSearch();
+    }
+});
+
+// Function to perform enhanced search based on selected options
+function performEnhancedSearch() {
+    const searchDigits = document.getElementById('enhanced-search-input').value.trim();
+    if (!searchDigits) {
+        alert('Please enter digits to search for.');
+        return;
+    }
+    
+    // Get the selected search type
+    const searchType = document.querySelector('input[name="searchType"]:checked').value;
+    
+    // Filter the cell data based on search type and digits
+    const results = cellData.filter(row => {
+        const cellNumber = row[0] ? row[0].toString() : '';
+        
+        switch(searchType) {
+            case 'startsWith':
+                return cellNumber.startsWith(searchDigits);
+            case 'endsWith':
+                return cellNumber.endsWith(searchDigits);
+            case 'exactMatch':
+                return cellNumber === searchDigits;
+            case 'anywhere':
+            default:
+                return cellNumber.includes(searchDigits);
+        }
+    });
+    
+    // Apply any active filters
+    const filteredResults = applyFilters(results);
+    
+    // Display results
+    document.getElementById('results-container').style.display = 'block';
+    populateTable(filteredResults, searchDigits);
+    
+    // Update the main search input to show what we're searching for
+    document.getElementById('search-input').value = 
+        `${searchType === 'startsWith' ? 'Starts with' : 
+          searchType === 'endsWith' ? 'Ends with' : 
+          searchType === 'exactMatch' ? 'Exact match' : 
+          'Contains'}: ${searchDigits}`;
+}
+
         // Event listener for the "Select All" checkbox
 document.getElementById('select-all-digits').addEventListener('change', function() {
     const isChecked = this.checked;
@@ -10083,6 +10160,7 @@ document.querySelectorAll('.digit-checkbox').forEach(checkbox => {
 ["9923884884","9923884884","AVAILABLE","PRICED","POSTPAID","10620"],
 ["9923937937","9923937937","AVAILABLE","PRICED","PREPAID","10620"],
 ["9923947947","9923947947","AVAILABLE","PRICED","POSTPAID","10620"],
+
 
         ];
 
