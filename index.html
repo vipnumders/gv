@@ -83,38 +83,41 @@
 </head>
 
 <body>
-    <!-- Enhanced Number Search Bar -->
-<div class="enhanced-search-container">
-    <div class="enhanced-search-title">Advanced Number Search</div>
-    <div class="enhanced-search-content">
-        <div class="search-type-container">
-            <div class="search-type-options">
-                <label><input type="radio" name="searchType" value="anywhere" checked> Anywhere</label>
-                <label><input type="radio" name="searchType" value="startsWith"> Starts With</label>
-                <label><input type="radio" name="searchType" value="endsWith"> Ends With</label>
-                <label><input type="radio" name="searchType" value="exactMatch"> Exact Match</label>
-            </div>
-            <div class="enhanced-search-input-container">
-                <input type="text" id="enhanced-search-input" class="enhanced-search-input" placeholder="Enter digits to search...">
-                <button id="enhanced-search-button" class="enhanced-search-button">
-                    <i class="fas fa-search"></i> Search
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
+    
     <div class="container">
         <div class="vi-logo">GVN</div>
         <h1>Global Vip Numbers</h1>
         <div class="search-container">
             <form action="#" method="get" id="search-form">
                 <input type="text" class="search-input"
-                    placeholder="Search for cell numbers or calculate (e.g. 7*666)..." name="search" id="search-input">
-                <button type="submit" class="search-button">
-                    <i class="fas fa-search"></i>
-                </button>
+                placeholder="Search for cell numbers or calculate (e.g. 7*666)..." name="search" id="search-input">
+                
             </form>
+            <!-- Enhanced Number Search Bar -->
+        <div class="enhanced-search-container">
+            <div class="enhanced-search-title">Advanced Number Search</div>
+            <div class="enhanced-search-content">
+                <div class="search-type-container">
+                    <div class="search-type-options">
+                        <label><input type="radio" name="searchType" value="anywhere" checked> Anywhere</label>
+                        <label><input type="radio" name="searchType" value="startsWith"> Starts With</label>
+                        <label><input type="radio" name="searchType" value="endsWith"> Ends With</label>
+                        <label><input type="radio" name="searchType" value="exactMatch"> Exact Match</label>
+                    </div>
+                    <div class="enhanced-search-input-container">
+                        <input type="text" id="enhanced-search-input" class="enhanced-search-input" placeholder="Enter digits to search...">
+                        <button id="enhanced-search-button" class="enhanced-search-button">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <style>
+                .search-form{
+                    display: none;
+                }
+            </style>
         </div>
                 <!-- Optional Bar 1: Specific Digit Search -->
         <div class="optional-bar">
@@ -11071,4 +11074,3 @@ document.querySelectorAll('.digit-checkbox').forEach(checkbox => {
     <script src="script.js"></script>
 </body> 
 </html>
-
